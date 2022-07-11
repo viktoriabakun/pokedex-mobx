@@ -1,0 +1,11 @@
+.itemContainer {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 96px auto;
+    color: #333;
+    text-decoration: none;
+}
+
+.itemContainer:nth-child(2n) {
+    background-color: #f6f6f6;
+}
