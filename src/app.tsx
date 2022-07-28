@@ -3,8 +3,8 @@ import React, { lazy, Suspense } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-const PokemonList = lazy(() => import('./pokemon/list'));
-const PokemonDetails = lazy(() => import('./pokemon/details'));
+const Pokedex = lazy(() => import('./pokedex'));
+const PokemonDetails = lazy(() => import('./pokedex/details'));
 
 const queryClient = new QueryClient();
 
@@ -13,7 +13,7 @@ const App: FC = () => (
     <Suspense fallback={<>Loading...</>}>
       <QueryClientProvider client={queryClient}>
         <Routes>
-          <Route path="/" element={<PokemonList />} />
+          <Route path="/" element={<Pokedex />} />
           <Route path="/details/:name" element={<PokemonDetails />} />
         </Routes>
       </QueryClientProvider>

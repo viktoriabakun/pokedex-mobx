@@ -1,8 +1,10 @@
 import type { FC } from 'react';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { detailFetcher } from '../../api';
+import PokemonListItem from '../list/item-wrapper/item';
+import styles from './styles.module.css';
 
 const PokemonDetails: FC = () => {
   const { name } = useParams<{ name: string }>();
@@ -11,7 +13,14 @@ const PokemonDetails: FC = () => {
     staleTime: 600_000,
   });
 
-  return <div>{!isLoading && JSON.stringify(data)}</div>;
+  return (
+    <>
+      <Link to="/" className={styles.navBar}>
+        &lt; Back to the Pokedex
+      </Link>
+      {!isLoading && <PokemonListItem data={data} />}
+    </>
+  );
 };
 
 export default PokemonDetails;

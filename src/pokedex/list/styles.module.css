@@ -1,0 +1,7 @@
+.pokemonLink {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #bbc190;
+}
